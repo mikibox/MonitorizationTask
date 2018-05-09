@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<Sysmon schemaversion="4.00">
+	<!-- Capture SHA256 and IMPHASH Hashes -->
+	<HashAlgorithms>SHA256,IMPHASH</HashAlgorithms>
+	<EventFiltering>
+		<DriverLoad onmatch="include"/>
+		<ImageLoad onmatch="include"/>
+		<FileCreateTime onmatch="include"/>
+		<CreateRemoteThread onmatch="include"/>
+		<ProcessTerminate onmatch="include"/>
+		<RawAccessRead onmatch="include"/>
+		<!-- Log all process created by IEUser -->
+		<ProcessCreate onmatch="include">
+			<User condition="contains">IE11Win8_1\IEUser</User>
+		</ProcessCreate>
+		<!-- Log initiated network connection from iexplorer.exe -->
+		<NetworkConnect onmatch="include">
+			<Image condition="contains">iexplore.exe</Image>
+		</NetworkConnect>
+	</EventFiltering>
+</Sysmon>
