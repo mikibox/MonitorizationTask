@@ -12,7 +12,8 @@
 
 Import Win81 to VirtualBox as specified in the lab sessions.
 
-Run Configure-Win81.bat
+Run Configure-Win81.bat as administrator
+
 Download [Sysmon](https://docs.microsoft.com/en-us/sysinternals/downloads/sysmon)
 
 Get to the directory where sysmon.exe is installed
@@ -26,7 +27,7 @@ sysmon -accepteula –i
 Update sysmon config:
 
 ```bash
-sysmon -c "path to sysmonConfig.xml
+sysmon -c "path to SysmonConfig.xml"
 ```
 
 Check if sysmon is working in eventvwr.exe. On Vista and higher, events are stored in "Applications and Services Logs/Microsoft/Windows/Sysmon/Operational"
