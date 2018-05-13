@@ -98,6 +98,5 @@ DestinationIp: (?<ip>\d+\.\d+\.\d+\.\d+)
 Then you could do the following search to get a plot on the ips and the count of events and the time:
 
 ```splunk
-index=* sourcetype=syslog| timechart count by ip limit=10
+host=IE11Win8_1 "EventID 3"| timechart count by ip
 ```
-
